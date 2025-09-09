@@ -1,85 +1,118 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Cliente</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro do Cliente - Minimercado</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-    <header>
-        <h1>Cadastro de Cliente</h1>
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="produtos.html">Produtos</a> |
-            <a href="servicos.html">Serviços</a>
-        </nav>
-        <hr>
-    </header>
-    <main class="container">
-        <form id="cadastroForm" class="mt-4">
-            <div class="mb-3">
-                <label for="nome" class="form-label">Nome completo*</label>
-                <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite seu nome">
-            </div>
-            <div class="mb-3">
-                <label for="endereco" class="form-label">Endereço*</label>
-                <input type="text" class="form-control" id="endereco" name="endereco" required placeholder="Rua, número, bairro">
-            </div>
-            <div class="mb-3">
-                <label for="cpf" class="form-label">CPF*</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" required pattern="\d{11}" placeholder="Somente números">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Sexo*</label><br>
-                <input type="radio" id="masc" name="sexo" value="Masculino" required>
-                <label for="masc">Masculino</label>
-                <input type="radio" id="fem" name="sexo" value="Feminino">
-                <label for="fem">Feminino</label>
-                <input type="radio" id="outro" name="sexo" value="Outro">
-                <label for="outro">Outro</label>
-            </div>
-            <div class="mb-3">
-                <label for="telefone" class="form-label">Telefone*</label>
-                <input type="tel" class="form-control" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">E-mail*</label>
-                <input type="email" class="form-control" id="email" name="email" required placeholder="email@exemplo.com">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Serviço*</label><br>
-                <input type="radio" id="retirada" name="servico" value="Retirada" required>
-                <label for="retirada">Retirada no local</label>
-                <input type="radio" id="entrega" name="servico" value="Entrega">
-                <label for="entrega">Tele-entrega</label>
-            </div>
-            <div class="mb-3">
-                <label for="data" class="form-label">Data do agendamento*</label>
-                <input type="date" class="form-control" id="data" name="data" required>
-            </div>
-            <div class="mb-3">
-                <label for="hora" class="form-label">Horário*</label>
-                <input type="time" class="form-control" id="hora" name="hora" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Aceita receber promoções?</label><br>
-                <input type="checkbox" id="promocoes" name="promocoes">
-                <label for="promocoes">Sim</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </form>
-    </main>
-    <footer class="container mt-4">
-        <hr>
-        <p>&copy; 2025 Minimercado Felix - Todos os direitos reservados.</p>
-        <p>Contato: minimercado@exemplo.com | Telefone: (21) 1234-5678</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      document.getElementById('cadastroForm').onsubmit = function(e) {
-        e.preventDefault();
-        alert('Cadastro realizado com sucesso!');
-      }
-    </script>
+<body class="d-flex flex-column min-vh-100">
+<nav class="navbar navbar-expand-lg navbar-light" role="navigation" aria-label="Menu principal">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/img/logo.png" alt="Logotipo do Minimercado" width="36" height="36" class="me-2"> Minimercado
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="cadastro.html" aria-current="page">Cadastro</a></li>
+        <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendamento</a></li>
+      </ul>
+      <button id="btn-contraste" class="btn btn-outline-secondary btn-sm" aria-pressed="false">Alto contraste</button>
+    </div>
+  </div>
+</nav>
+
+<main class="container flex-fill my-4" id="conteudo">
+  <h1 class="h3 mb-3">Cadastro do Cliente</h1>
+  <p class="text-muted">Preencha seus dados para agilizar suas compras e agendamentos.</p>
+  <form id="form-cadastro" class="row g-3" novalidate>
+    <div class="col-md-6">
+      <label for="nome" class="form-label">Nome completo</label>
+      <input type="text" class="form-control" id="nome" name="nome" required placeholder="Ex.: Maria da Silva" aria-describedby="nomeHelp">
+      <div id="nomeHelp" class="form-text">Como está no seu documento.</div>
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" class="form-control" id="email" name="email" required placeholder="voce@exemplo.com">
+    </div>
+    <div class="col-md-4">
+      <label for="cpf" class="form-label">CPF</label>
+      <input type="text" inputmode="numeric" class="form-control" id="cpf" name="cpf" required placeholder="000.000.000-00" aria-describedby="cpfHelp">
+      <div id="cpfHelp" class="form-text">Somente CPF do titular.</div>
+    </div>
+    <div class="col-md-4">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="tel" class="form-control" id="telefone" name="telefone" required placeholder="(51) 99999-0000">
+    </div>
+    <div class="col-md-4">
+      <label for="nascimento" class="form-label">Data de Nascimento</label>
+      <input type="date" class="form-control" id="nascimento" name="nascimento" required>
+    </div>
+
+    <div class="col-md-4">
+      <label for="endereco" class="form-label">Endereço</label>
+      <input type="text" class="form-control" id="endereco" name="endereco" required placeholder="Rua Exemplo, bairro">
+    </div>
+    <div class="col-md-2">
+      <label for="numero" class="form-label">Número</label>
+      <input type="number" class="form-control" id="numero" name="numero" required min="1" placeholder="123">
+    </div>
+    <div class="col-md-3">
+      <label for="cidade" class="form-label">Cidade</label>
+      <input type="text" class="form-control" id="cidade" name="cidade" required>
+    </div>
+    <div class="col-md-3">
+      <label for="cep" class="form-label">CEP</label>
+      <input type="text" class="form-control" id="cep" name="cep" required placeholder="00000-000">
+    </div>
+
+    <fieldset class="col-12">
+      <legend class="col-form-label pt-0">Sexo</legend>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sexo" id="sexoF" value="Feminino" required>
+        <label class="form-check-label" for="sexoF">Feminino</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sexo" id="sexoM" value="Masculino">
+        <label class="form-check-label" for="sexoM">Masculino</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sexo" id="sexoO" value="Outro">
+        <label class="form-check-label" for="sexoO">Outro</label>
+      </div>
+    </fieldset>
+
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="newsletter" name="newsletter">
+        <label class="form-check-label" for="newsletter">Desejo receber ofertas por e-mail</label>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="termos" name="termos" required>
+        <label class="form-check-label" for="termos">Li e aceito os termos de uso</label>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Salvar cadastro</button>
+      <a class="btn btn-outline-secondary" href="index.html">Voltar</a>
+    </div>
+  </form>
+</main>
+
+<footer class="footer">
+  <div class="container"><p class="mb-0">© <span id="year"></span> Minimercado</p></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{const y=document.getElementById('year'); if (y) y.textContent=new Date().getFullYear();});</script>
 </body>
 </html>

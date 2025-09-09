@@ -1,0 +1,60 @@
+
+/* Acessibilidade: alternância de alto contraste */
+:root {
+  --bg: #ffffff;
+  --fg: #1f2937;
+  --muted: #6b7280;
+  --brand: #0d6efd;
+  --card: #f9fafb;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.high-contrast {
+  --bg: #000000 !important;
+  --fg: #ffffff !important;
+  --muted: #e5e7eb !important;
+  --card: #111827 !important;
+}
+
+.navbar, .footer {
+  background: var(--card);
+}
+
+.visually-hidden-focusable:active, .visually-hidden-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+
+/* Cards */
+.card-soft {
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* Forms */
+form .form-text {
+  color: var(--muted);
+}
+
+/* Carousel */
+.carousel-caption {
+  background: rgba(0,0,0,0.5);
+  border-radius: .5rem;
+  padding: .5rem .75rem;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
