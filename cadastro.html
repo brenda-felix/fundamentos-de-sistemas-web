@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Cliente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Cliente</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="produtos.html">Produtos</a> |
+            <a href="servicos.html">Serviços</a>
+        </nav>
+        <hr>
+    </header>
+    <main class="container">
+        <form id="cadastroForm" class="mt-4">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome completo*</label>
+                <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite seu nome">
+            </div>
+            <div class="mb-3">
+                <label for="endereco" class="form-label">Endereço*</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" required placeholder="Rua, número, bairro">
+            </div>
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF*</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" required pattern="\d{11}" placeholder="Somente números">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Sexo*</label><br>
+                <input type="radio" id="masc" name="sexo" value="Masculino" required>
+                <label for="masc">Masculino</label>
+                <input type="radio" id="fem" name="sexo" value="Feminino">
+                <label for="fem">Feminino</label>
+                <input type="radio" id="outro" name="sexo" value="Outro">
+                <label for="outro">Outro</label>
+            </div>
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone*</label>
+                <input type="tel" class="form-control" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail*</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="email@exemplo.com">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Serviço*</label><br>
+                <input type="radio" id="retirada" name="servico" value="Retirada" required>
+                <label for="retirada">Retirada no local</label>
+                <input type="radio" id="entrega" name="servico" value="Entrega">
+                <label for="entrega">Tele-entrega</label>
+            </div>
+            <div class="mb-3">
+                <label for="data" class="form-label">Data do agendamento*</label>
+                <input type="date" class="form-control" id="data" name="data" required>
+            </div>
+            <div class="mb-3">
+                <label for="hora" class="form-label">Horário*</label>
+                <input type="time" class="form-control" id="hora" name="hora" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Aceita receber promoções?</label><br>
+                <input type="checkbox" id="promocoes" name="promocoes">
+                <label for="promocoes">Sim</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </main>
+    <footer class="container mt-4">
+        <hr>
+        <p>&copy; 2025 Minimercado Felix - Todos os direitos reservados.</p>
+        <p>Contato: minimercado@exemplo.com | Telefone: (21) 1234-5678</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById('cadastroForm').onsubmit = function(e) {
+        e.preventDefault();
+        alert('Cadastro realizado com sucesso!');
+      }
+    </script>
+</body>
+</html>
